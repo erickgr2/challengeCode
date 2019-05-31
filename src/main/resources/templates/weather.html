@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div>
+<h2>Welcome to weather search</h2>
+</div>
+
+
+ <h3>Enter The city name</h3>
+        <form action="#" th:action="@{/weather}" th:object="${city}" method="post">
+              <label>Search Weather for: </label>
+              <input type="text" th:field="*{name}"/>
+              <label th:errors = "*{name}"></label> 
+              <br></br>
+              <input type="submit" value="Submit"/>
+          
+        </form>
+        
+<label >The weather information is:</label>
+
+
+  <ul style="list-style-type:none;">
+    <li>City: 		<th:span th:text = "${cityWeather.city}"></th:span></li>
+    <li>Date: 		<th:span th:text = "${cityWeather.date}"></th:span> </li>
+    <li>Description:  <th:span th:text = "${cityWeather.description}"></th:span></li>
+    <li>Temperature in °F:  <th:span th:text = "${cityWeather.temperatureF}"></th:span></li>
+    <li>Temperature in °C:  <th:span th:text = "${cityWeather.temperatureC}"></th:span></li>
+    <li>Sunrise time: <th:span th:text = "${cityWeather.sunriseTime}"></th:span></li>
+    <li>Sunset time:  <th:span th:text = "${cityWeather.sunsetTime}"></th:span></li>
+  </ul>
+
+
+</body>
+</html>
